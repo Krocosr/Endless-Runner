@@ -15,10 +15,12 @@ public class CharacterMoveController : MonoBehaviour
     private bool isOnGround;
 
     private Rigidbody2D rig;
+    private Animator anim;
 
     void Start()
     {
-        rig = GetComponent<Rigidbody2D>();    
+        rig = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     [Header("Ground Raycast")]
@@ -63,16 +65,16 @@ public class CharacterMoveController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        {
+    {      
             // read input
-            if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
             {
                 if (isOnGround)
                 {
                     isJumping = true;
                 }
             }
-        }
+        // change animation
+        anim.SetBool("isOnGround", isOnGround);
     }
 }
