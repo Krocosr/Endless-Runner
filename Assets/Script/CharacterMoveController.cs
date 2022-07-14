@@ -65,6 +65,10 @@ public class CharacterMoveController : MonoBehaviour
         groundRaycastDistance), Color.white);
     }
 
+    [Header("Scoring")]
+    public ScoreController score;
+    public float scoringRatio;
+    private float lastPositionX;
     // Update is called once per frame
     void Update()
     {      
@@ -79,5 +83,14 @@ public class CharacterMoveController : MonoBehaviour
             }
         // change animation
         anim.SetBool("isOnGround", isOnGround);
+
+        // calculate score
+        int distancePassed = Mathf.FloorToInt(transform.position.x - lastPositionX);
+        int scoreIncrement = Mathf.FloorToInt(distancePassed / scoringRatio);
+        if (scoreIncrement > 0)
+        {
+            score.IncreaseCurrentScore(scoreIncrement);
+            lastPositionX += distancePassed;
+        }
     }
 }
