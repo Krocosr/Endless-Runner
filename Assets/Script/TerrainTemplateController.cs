@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class TerrainTemplateController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private const float debugLineHeight = 10.0f;
+    private void OnDrawGizmos()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.DrawLine(transform.position + Vector3.up * debugLineHeight / 2,
+        transform.position + Vector3.down * debugLineHeight / 2, Color.green);
     }
 }
