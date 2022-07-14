@@ -1426,6 +1426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 863138370995485790}
+  - component: {fileID: 5754126244823399064}
   m_Layer: 8
   m_Name: Ground Template 1
   m_TagString: Untagged
@@ -1460,3 +1461,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5754126244823399064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8319084712493336882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cab8b9805399e4ab550d508540c701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
