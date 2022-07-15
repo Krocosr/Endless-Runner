@@ -18,6 +18,25 @@ public class CharacterMoveController : MonoBehaviour
     private Animator anim;
     private CharacterSoundController sound;
 
+    [Header("GameOver")]
+    public float fallPositionY;
+    public GameObject gameOverScreen;
+
+    [Header("Camera")]
+    public CameraMoveController gameCamera;
+
+    private void GameOver()
+    {
+        // set high score
+        score.FinishScoring();
+        // stop camera movement
+        gameCamera.enabled = false;
+        // show gameover
+        gameOverScreen.SetActive(true);
+        // disable this too
+        this.enabled = false;
+    }
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -70,6 +89,7 @@ public class CharacterMoveController : MonoBehaviour
     public float scoringRatio;
     private float lastPositionX;
     // Update is called once per frame
+
     void Update()
     {      
             // read input
@@ -91,6 +111,11 @@ public class CharacterMoveController : MonoBehaviour
         {
             score.IncreaseCurrentScore(scoreIncrement);
             lastPositionX += distancePassed;
+        }
+
+        if (transform.position.y < fallPositionY)
+        {
+            GameOver();
         }
     }
 }
