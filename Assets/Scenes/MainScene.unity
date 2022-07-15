@@ -1604,6 +1604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb73c86e564fb14ebbccf23b6053f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreHighlightRange: 50
+  sound: {fileID: 455765928}
 --- !u!4 &2073546544
 Transform:
   m_ObjectHideFlags: 0
